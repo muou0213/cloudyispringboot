@@ -1,4 +1,4 @@
-package com.ncepu.yun.cloudyispringboot.service;
+package com.ncepu.yun.cloudyispringboot.service.impl.api;
 
 import java.util.List;
 
@@ -10,8 +10,7 @@ import com.ncepu.cloudyi.cloudyiapi.api.UserServiceApi;
 import com.ncepu.cloudyi.cloudyiapi.entity.User;
 import com.ncepu.yun.cloudyispringboot.mapper.UserMapper;
 
-//@DubboService(version = "1.0.0")
-@Service
+@DubboService(version = "1.0.0")
 public class UserServiceApiImpl implements UserServiceApi {
 
     @Autowired

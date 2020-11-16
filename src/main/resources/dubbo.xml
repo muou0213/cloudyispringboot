@@ -18,7 +18,7 @@
                     check="${dubbo.consumer.check:true}" retries="${dubbo.consumer.retries:2}"/>
 
     <!-- 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 -->
-<!--    <dubbo:annotation package="${dubbo.annotation.packages:com.ncepu.yun.service}" />-->
-    <dubbo:service interface="com.ncepu.cloudyi.cloudyiapi.api.UserServiceApi" ref="userServiceApiImpl" register="true" />
+    <dubbo:annotation package="${dubbo.annotation.packages:com.ncepu.yun}" />
+<!--    <dubbo:service interface="com.ncepu.cloudyi.cloudyiapi.api.UserServiceApi" ref="userServiceApiImpl" register="true" />-->
 <!--    <dubbo:reference id="userServiceAPIImplRemote" interface="com.ncepu.yun.api.UserServiceAPI" />-->
 </beans>

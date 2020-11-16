@@ -1,0 +1,24 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    <!-- 公共信息，也可以用dubbo.properties配置 -->
+    <dubbo:application name="${spring.application.name}" logger="slf4j" />
+    <dubbo:protocol name="dubbo" port="${dubbo.port:20880}" heartbeat="${dubbo.zk.heartbeat:500}"
+                    accepts="${dubbo.maxAcceptors:500}" threadpool="${dubbo.threadpool.type:cached}"
+                    threads="${dubbo.threadpool.nums:100}" payload="${dubbo.payload:8388608}"
+    />
+    <dubbo:registry address="${dubbo.registry.address}" register="${dubbo.registry.register:true}"
+                    subscribe="${dubbo.registry.subscribe:true}" check="${dubbo.registry.check:true}"/>
+<!--    <dubbo:provider loadbalance="${dubbo.loadbalance:leastactive}" version="${dubbo.service.version:1.0.0}" routers="${dubbo.routers:}"/>-->
+    <dubbo:provider loadbalance="${dubbo.loadbalance:leastactive}" version="${dubbo.service.version:1.0.0}"/>
+
+    <dubbo:consumer timeout="${dubbo.consumer.timeout:1000}" loadbalance="${dubbo.loadbalance:leastactive}"
+                    check="${dubbo.consumer.check:true}" retries="${dubbo.consumer.retries:2}"/>
+
+    <!-- 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 -->
+<!--    <dubbo:annotation package="${dubbo.annotation.packages:com.ncepu.yun.service}" />-->
+    <dubbo:service interface="com.ncepu.cloudyi.cloudyiapi.api.UserServiceApi" ref="userServiceApiImpl" register="true" />
+<!--    <dubbo:reference id="userServiceAPIImplRemote" interface="com.ncepu.yun.api.UserServiceAPI" />-->
+</beans>

@@ -1,4 +1,4 @@
-package com.ncepu.yun.config;
+package com.ncepu.yun.cloudyispringboot.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ncepu.yun.mapper.UserMapper">
-    <select id="selectAllUser" resultType="com.ncepu.yun.entity.User">
+<mapper namespace="com.ncepu.yun.cloudyispringboot.mapper.UserMapper">
+    <select id="selectAllUser" resultType="com.ncepu.yun.cloudyispringboot.cloudyiapi.entity.User">
         select userName, accountName, description from `user`;
     </select>
 </mapper>

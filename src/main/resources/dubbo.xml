@@ -12,9 +12,9 @@
     <dubbo:registry address="${dubbo.registry.address}" register="${dubbo.registry.register:true}"
                     subscribe="${dubbo.registry.subscribe:true}" check="${dubbo.registry.check:true}"/>
 <!--    <dubbo:provider loadbalance="${dubbo.loadbalance:leastactive}" version="${dubbo.service.version:1.0.0}" routers="${dubbo.routers:}"/>-->
-    <dubbo:provider loadbalance="${dubbo.loadbalance:leastactive}" version="${dubbo.service.version:1.0.0}"/>
+    <dubbo:provider loadbalance="${dubbo.loadbalance:leastactive}" version="${dubbo.service.version:1.0.0}" timeout="1000000" />
 
-    <dubbo:consumer timeout="${dubbo.consumer.timeout:1000}" loadbalance="${dubbo.loadbalance:leastactive}"
+    <dubbo:consumer timeout="${dubbo.consumer.timeout:1000000}" loadbalance="${dubbo.loadbalance:leastactive}"
                     check="${dubbo.consumer.check:true}" retries="${dubbo.consumer.retries:2}"/>
 
     <!-- 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 -->

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.ncepu.cloudyi.cloudyiapi.api.UserServiceApi;
 import com.ncepu.cloudyi.cloudyiapi.entity.User;
 import com.ncepu.yun.cloudyispringboot.config.DubboConsumerConfig;
 
@@ -13,11 +14,10 @@ public class TestDubboConsumerMain {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
                 DubboConsumerConfig.class);
 
-       /* UserServiceApiCaller userServiceAPICaller =
-                applicationContext.getBean("userServiceAPICaller", UserServiceApiCaller.class);
+        UserServiceApi userServiceApi =
+                applicationContext.getBean("userServiceApi", UserServiceApi.class);
 
-        List<User> allUser = userServiceAPICaller.getAllUser();
-        System.out.println(allUser);*/
-
+        List<User> allUser = userServiceApi.getUsers();
+        System.out.println(allUser);
     }
 }
